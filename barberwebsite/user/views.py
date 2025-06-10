@@ -33,5 +33,7 @@ def login_user(request):
         else:
             form= AuthenticationForm()
     return render (request,"login.html",{"form":form})
+def home(request):
+    return render (request,"home.html")
 
 
