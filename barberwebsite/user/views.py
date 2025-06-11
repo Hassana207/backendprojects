@@ -30,7 +30,7 @@ def login_user(request):
              else :
                 return redirect("customerDashboard")
              
-        else:
+    else:
             form= AuthenticationForm()
     return render (request,"login.html",{"form":form})
 def home(request):
