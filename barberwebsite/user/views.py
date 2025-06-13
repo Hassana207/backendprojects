@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
-from .forms import RegisterUser
+from .forms import RegisterUser , ComfirmUser
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
-
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -35,5 +36,24 @@ def login_user(request):
     return render (request,"login.html",{"form":form})
 def home(request):
     return render (request,"home.html")
+
+def forgot_password(request):
+    if request.method == "POST":
+        form = ComfirmUser(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            new_password = form.cleaned_data["new_password"]
+            try:
+              user = User.objects.get(username=username)
+              user.set_password(new_password)
+              user.save()
+              messages.success(request,"Password reset successfully")
+              return redirect("login")
+            except User.DoesNotExist:
+                messages.error(request,"User can not be found")
+    else:
+        form = ComfirmUser()
+    return render(request,"forgot_password.html",{"form":form})
+
 
 
