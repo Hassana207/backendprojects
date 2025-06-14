@@ -5,13 +5,14 @@ from barbers.models import BarberInfo
 
 # Create your models here.
 
-class Bookings(models.Model):
+class Booking(models.Model):
     customer = models.ForeignKey(User,on_delete=models.CASCADE,related_name='bookings')
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     services = models.ManyToManyField(Service)
-    barber = models.ManyToManyField(BarberInfo)
+    barber = models.ForeignKey(BarberInfo,on_delete=models.CASCADE)
     date = models.DateTimeField()
 
-    def _str_ (self):
+    def __str__ (self):
         return f"Booking by {self.customer.username} on {self.date}"
     
