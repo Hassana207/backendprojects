@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Bookings</title>
+</head>
+<body>
+    <h2>All Bookings</h2>
+
+    {% if book_list %}
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Services</th>
+                    <th>Barber</th>
+                    <th>Date</th>
+                    <th>Actions</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in book_list %}
+                <tr>
+                    <td>{{ booking.customer.username }}</td>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>
+                        {% for service in booking.services.all %}
+                            {{ service.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ booking.barber.name }}</td>
+                    <td>{{ booking.date }}</td>
+                    <td>
+                        <!-- Cancel link -->
+                        <a href="{% url 'cancel_booking' booking.id %}" 
+                           onclick="return confirm('Are you sure you want to cancel this booking?');">
+                            Cancel
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bookings found.</p>
+    {% endif %}
+
+    <p><a href="{% url 'adminDashBoard' %}">← Back to Dashboard</a></p>
+</body>
+</html>

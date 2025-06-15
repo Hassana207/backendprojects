@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookings</title>
+</head>
+<body>
+    <h2>My Bookings</h2>
+
+    {% if book_list %}
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Barber</th>
+                    <th>Services</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in book_list %}
+                <tr>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.barber.name }}</td>
+                    <td>
+                        {% for service in booking.services.all %}
+                            {{ service.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ booking.date }}</td>
+                    <td>
+                        <a href="{% url 'reschedule_date' booking.id %}">Reschedule</a> |
+                        <a href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You don't have any bookings yet.</p>
+    {% endif %}
+
+    <p><a href="{% url 'customerDashboard' %}">← Back to Dashboard</a></p>
+</body>
+</html>

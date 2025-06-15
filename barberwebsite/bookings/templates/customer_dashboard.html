@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ace Barbershop | User Dashboard</title>
+</head>
+<body>
+
+    <!-- Header / Branding -->
+    <header>
+        <h1>💈Ace Barbershop</h1>
+        <p><em>An elevated salon experience in the heart of the city.</em></p>
+        <p>Ace Barbershop, Ace Salon, & AceLash Bar is a one-stop shop for men, women & little ones. Our take on the modern-day salon experience.</p>
+        <hr>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'booked_service' %}">Book a Service</a></li>
+            <li><a href="{% url 'user_booking_list' %}">My Bookings</a></li>
+            <li><a href="{% url 'user_booking_list' %}">Cancel a Booking</a></li>
+            <li><a href="{% url 'user_booking_list' %}">Reschedule</a></li>
+            
+        </ul>
+        <hr>
+    </nav>
+
+    <!-- Dashboard Welcome -->
+    <main>
+        <section>
+            <h2>Welcome, {{ request.user.first_name|default:request.user.username }}</h2>
+            <p>This is your dashboard. From here, you can book a new service, view your current bookings, or make changes to existing ones.</p>
+        </section>
+
+        <hr>
+
+        <!-- About Us -->
+        <section>
+            <h3>About Ace Barbershop</h3>
+            <p>Founded in the heart of Toronto, Ace Barbershop began with a simple mission: to offer high-quality, inclusive grooming services for everyone — men, women, and kids. Today, we are proud to offer a complete salon experience from cuts and fades to lashes and braids, all under one roof.</p>
+            <p>We believe in keeping you fresh, confident, and stylish — the Wavy way.</p>
+        </section>
+
+        <hr>
+
+        <!-- Location & Hours -->
+        <section>
+            <h3>📍 Location</h3>
+            <p><strong>Queen West – DOWNTOWN</strong><br>
+            16 John Street, 2nd Floor<br>
+            Toronto, ON, M5T 1X3</p>
+
+            <h3>🕒 Hours</h3>
+            <p>Open 7 Days a Week<br>
+            10:00 AM – 8:00 PM</p>
+        </section>
+
+        <hr>
+
+        <!-- Contact Info -->
+        <section>
+            <h3>📞 Contact Us</h3>
+            <p>Phone: <a href="tel:6473671497">(905)-367-1497</a><br>
+            Email: <a href="mailto:ayindehassan776@gmail.com">info@wavybarbershop.com</a></p>
+        </section>
+
+        <hr>
+
+        
+            <p>This form is protected by reCAPTCHA, and the Google Privacy Policy and Terms of Service apply.</p>
+        </section>
+    </main>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Ace Barbershop. All rights reserved.</p>
+        <p>Secure checkout powered by Square</p>
+        <p>Accepted Payment Methods: Apple Pay, Google Pay, Visa, Mastercard, AmEx, Discover, JCB, Afterpay, Interac</p>
+    </footer>
+
+</body>
+</html>
