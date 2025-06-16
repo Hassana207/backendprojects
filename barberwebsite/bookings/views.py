@@ -94,3 +94,6 @@ def customer_dashboard(request):
 
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html")
+
+def success_page(request):
+    return render(request,"successful.html")

@@ -1,5 +1,4 @@
 from django.db import models
-from bookings.models import Booking
 from django.contrib.auth.models import User
 from service.models import Service
 

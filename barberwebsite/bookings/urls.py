@@ -9,4 +9,5 @@ urlpatterns = [
     path('cancel/<int:id>/',views.cancel_booking,name="cancel_booking"),
      path('dashboard/', views.customer_dashboard, name='customerDashboard'),
     path('admin-dashboard/', views.admin_dashboard, name='adminDashBoard'),
+    path('success/',views.success_page,name='sucess-page')
 ]
