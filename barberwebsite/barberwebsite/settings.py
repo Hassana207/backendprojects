@@ -135,3 +135,7 @@ EMAIL_HOST_USER = 'ayindehassan776@gmail@gmail.com'
 EMAIL_HOST_PASSWORD = 'mvsp ayum cwiu zerz'  
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+

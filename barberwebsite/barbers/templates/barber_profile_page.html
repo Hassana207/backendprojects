@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Barbers</title>
+</head>
+<body>
+    <h2>All Registered Barbers</h2>
+
+    {% if barbers %}
+        <ul>
+            {% for barber in barbers %}
+                <li>
+                    <strong>Name:</strong> {{ barber.name }}<br>
+
+                    {% if barber.photo %}
+                        <img src="{{ barber.photo.url }}" alt="{{ barber.name }}" width="150"><br>
+                    {% else %}
+                        <em>No photo available</em><br>
+                    {% endif %}
+
+                    <strong>Bio:</strong> {{ barber.bio }}<br>
+                    <strong>Skills:</strong> {{ barber.skills }}<br>
+                    <strong>Reviews:</strong> {{ barber.reviews }}<br>
+
+                    <strong>Services:</strong>
+                    <ul>
+                        {% for service in barber.services.all %}
+                            <li>{{ service.name }}</li>
+                        {% empty %}
+                            <li>No services assigned.</li>
+                        {% endfor %}
+                    </ul>
+
+                    <a href="{% url 'edit_barber_information' barber.id %}">Edit</a> |
+                    <a href="{% url 'delete_barber' barber.id %}">Delete</a>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No barbers found.</p>
+    {% endif %}
+</body>
+</html>

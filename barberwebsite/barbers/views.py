@@ -44,7 +44,7 @@ def delete_barber(request,barber_id):
     barber = get_object_or_404(BarberInfo, id=barber_id)
     if request.method == "POST":
         barber.delete()
-        return redirect ('delete_sucess_page')
+        return redirect ('delete_success_page')
     return render(request,"delete_barber.html",{'barber':barber})
 
 def barber_success_page(request):
@@ -55,5 +55,11 @@ def rate_success_page(request):
 
 def delete_success_page(request):
     return render(request,"delete_success_page.html")
+
+def barber_profile(request):
+    barbers = BarberInfo.objects.all()
+    return render(request, "barber_profile_page.html", {'barbers': barbers})
+
+
 
 

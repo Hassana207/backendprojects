@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate Barber</title>
+</head>
+<body>
+    <h1>Rate {{ barber.name }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Rating</button>
+    </form>
+
+    <p><a href="{% url 'barber_profile' %}">Back to Profile</a></p>
+</body>
+</html>

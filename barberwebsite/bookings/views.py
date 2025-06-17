@@ -4,6 +4,8 @@ from django.core.mail import send_mail
 from .models import Booking
 from django.conf import settings
 from django.utils.dateparse import parse_datetime
+from barbers.models import BarberInfo
+
 
 def booked_service(request):
     if request.method == "POST":
@@ -90,10 +92,13 @@ def reschedule_booking(request,id):
      return render(request, "reschedule_booking.html", {"booking": booking})
 
 def customer_dashboard(request):
-    return render(request, "customer_dashboard.html")
+    barbers = BarberInfo.objects.all()
+    return render(request, 'customer_dashboard.html', {'barbers': barbers})
 
 def admin_dashboard(request):
-    return render(request, "admin_dashboard.html")
+    barbers = BarberInfo.objects.all()
+    return render(request, 'admin_dashboard.html', {'barbers': barbers})
+
 
 def success_page(request):
     return render(request,"successful.html")

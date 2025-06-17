@@ -16,3 +16,5 @@ class Booking(models.Model):
     def __str__ (self):
         return f"Booking by {self.customer.username} on {self.date}"
     
+
+
