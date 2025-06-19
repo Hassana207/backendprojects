@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Services</title>
+</head>
+<body>
+    <h1>All Services</h1>
+
+    {% if services %}
+        <ul>
+            {% for service in services %}
+                <li>
+                    {{ service.name }} 
+                    
+                    <a href="{% url 'edit_service_information' service.id %}">Edit Service</a>
+                    <a href="{% url 'delete_service_information' service.id %}">Delete Service</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No services available.</p>
+        <a href="{% url 'adminDashBoard'  %}">Back to Home</a>
+    {% endif %}
+</body>
+</html>

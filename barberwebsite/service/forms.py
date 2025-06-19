@@ -3,6 +3,6 @@ from . models import Service
 
 
 class ServiceForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Service
         fields = ["name","price"]

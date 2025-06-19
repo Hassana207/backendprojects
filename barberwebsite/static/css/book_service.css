@@ -1,0 +1,103 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(to bottom right, #ede9fe, #c7d2fe);
+    color: #1f2937;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+/* Heading */
+h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #4c1d95;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input, form select, form textarea {
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background-color: #f9fafb;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #4c1d95;
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    background-color: #4c1d95;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5b21b6;
+}
+
+/* Back Links Container */
+.links {
+    margin-top: 40px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 20px;
+}
+
+.links p {
+    margin: 15px 0;
+}
+
+.links a {
+    display: block;
+    color: #4c1d95;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for links */
+.links a:hover {
+    background-color: #ede9fe;
+    border-color: #c4b5fd;
+    color: #3b0764;
+}

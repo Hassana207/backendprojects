@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Successful</title>
+    {% load static %}
+   <link rel="stylesheet" href="{% static 'css/success_page.css' %}">
+
+
+    <style></style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Booking Confirmed!</h1>
+
+        <p>Thank you for booking with <strong>Ace Barbershop</strong>.</p>
+        <p>Your appointment has been successfully scheduled. You will receive a confirmation email shortly.</p>
+
+        <hr>
+
+        <h3>Need to make changes?</h3>
+        <ul>
+            <li><a href="{% url 'user_booking_list' %}">📖 View My Bookings</a></li>
+        </ul>
+
+        {% if request.user.is_staff %}
+            <a href="{% url 'adminDashBoard' %}" class="dashboard-btn">← Back to Admin Dashboard</a>
+        {% else %}
+            <a href="{% url 'customerDashboard' %}" class="dashboard-btn">← Back to Customer Dashboard</a>
+        {% endif %}
+    </div>
+</body>
+</html>

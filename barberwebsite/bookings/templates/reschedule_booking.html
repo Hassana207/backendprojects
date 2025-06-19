@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cancel Booking</title>
+    <title>Reschedule Booking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reschedule.css' %}">
 </head>
 <body>
-    <h2>Cancel Booking</h2>
+    <div class="container">
+        <h2>Reschedule Booking</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="new_date">Select New Date:</label>
+            <input type="datetime-local" name="new_date" id="new_date" required>
+            <button type="submit">Reschedule</button>
+        </form>
 
-    <p>Are you sure you want to cancel the booking with {{ booking.barber.name }} on {{ booking.date }}?</p>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Yes, Cancel Booking</button>
-        <a href="{% url 'user_booking_list' %}">No, Go Back</a>
-    </form>
+        <!-- Add the "No, Go Back" link -->
+        {% if user.is_staff %}
+            <a href="{% url 'booking_list' %}" class="cancel-link">No, Go Back</a>
+        {% else %}
+            <a href="{% url 'user_booking_list' %}" class="cancel-link">No, Go Back</a>
+        {% endif %}
+    </div>
 </body>
 </html>

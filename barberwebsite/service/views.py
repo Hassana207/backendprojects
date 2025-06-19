@@ -27,3 +27,20 @@ def edit_service_information(request, service_id):
 
 def service_success_page(request):
     return render(request,"service_success_page.html")
+
+
+def delete_service_information(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
+    if request.method == "POST":
+        service.delete()
+        return redirect('delete_successful')  
+    
+    return render(request, "delete_service_information.html", {"service": service})
+
+def service_list(request):
+    services = Service.objects.all()  
+    return render(request, "service_list.html", {"services": services})  
+
+def delete_successful(request):
+    return render(request, "delete_successful.html")

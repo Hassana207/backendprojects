@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>All Barbers</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/barbers.css' %}">
 </head>
 <body>
     <h2>All Registered Barbers</h2>
@@ -32,8 +34,12 @@
                         {% endfor %}
                     </ul>
 
-                    <a href="{% url 'edit_barber_information' barber.id %}">Edit</a> |
-                    <a href="{% url 'delete_barber' barber.id %}">Delete</a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url 'edit_barber_information' barber.id %}">Edit</a> |
+                        <a href="{% url 'delete_barber' barber.id %}">Delete</a>
+                    {% else %}
+                        <a href="{% url 'rate_barber_service' barber.id %}">Rate {{ barber.name }}</a>
+                    {% endif %}
                 </li>
                 <hr>
             {% endfor %}

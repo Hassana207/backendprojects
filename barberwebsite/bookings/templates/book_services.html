@@ -2,17 +2,28 @@
 <html>
 <head>
     <title>Book a Service</title>
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'css/book_service.css' %}">
+
 </head>
 <body>
-    <h2>Book a Service</h2>
+    <div class="container">
+        <h2>Book a Service</h2>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-        <button type="submit">Book Now</button>
-    </form>
+            <button type="submit">Book Now</button>
+        </form>
 
-    <p><a href="{% url 'customerDashboard' %}">← Back to Dashboard</a></p>
+        <div class="links">
+            {% if request.user.is_staff %}
+                <p><a href="{% url 'adminDashBoard' %}">← Back to Admin Dashboard</a></p>
+            {% else %}
+                <p><a href="{% url 'customerDashboard' %}">← Back to Customer Dashboard</a></p>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>

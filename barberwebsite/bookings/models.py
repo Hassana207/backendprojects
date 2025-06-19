@@ -7,7 +7,7 @@ from barbers.models import BarberInfo
 
 class Booking(models.Model):
     customer = models.ForeignKey(User,on_delete=models.CASCADE,related_name='bookings')
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,unique=True)
     email = models.EmailField()
     services = models.ManyToManyField(Service)
     barber = models.ForeignKey(BarberInfo,on_delete=models.CASCADE)

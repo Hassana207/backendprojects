@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancellation Successful</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cancel_success.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>❌ Booking Cancelled!</h1>
+
+        <p>Your appointment has been successfully cancelled at <strong>Ace Barbershop</strong>.</p>
+        <p>If you change your mind, feel free to make a new booking anytime.</p>
+
+        <hr>
+
+        <h3>What do you want to do next?</h3>
+        <ul>
+            <li><a href="{% url 'user_booking_list' %}">📖 View My Bookings</a></li>
+        </ul>
+
+        {% if request.user.is_staff %}
+            <a href="{% url 'adminDashBoard' %}" class="dashboard-btn">← Back to Admin Dashboard</a>
+        {% else %}
+            <a href="{% url 'customerDashboard' %}" class="dashboard-btn">← Back to Customer Dashboard</a>
+        {% endif %}
+    </div>
+</body>
+</html>

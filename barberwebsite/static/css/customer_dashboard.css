@@ -1,0 +1,57 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+nav {
+    text-align: center; /* Center the navigation */
+    margin: 2rem 0;
+}
+
+nav {
+    text-align: center; /* Center the navigation */
+    margin: 2rem 0;
+}
+nav ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+}
+nav ul li {
+    display: inline-block; /* Display list items inline */
+    margin: 0 1rem; /* Space between buttons */
+}
+nav ul li a {
+    display: inline-block; /* Make the link a block element */
+    padding: 0.8rem 1.5rem; /* Button padding */
+    background-color: #6a0dad; /* Button background color */
+    color: #ffffff; /* Button text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 30px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    background-color: #9c27b0; /* Change background on hover */
+}
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto; /* Center the main content */
+}
+h2, h3 {
+    color: #6a0dad; /* Heading color */
+}
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #6a0dad; /* Footer background color */
+    color: #ffffff; /* Footer text color */
+    margin-top: 2rem;
+}

@@ -2,17 +2,27 @@
 <html>
 <head>
     <title>Cancel Booking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cancel_booking.css' %}">
 </head>
 <body>
-    <h2>Confirm Cancellation</h2>
-    <p>
-        Are you sure you want to cancel your booking with {{ booking.barber.name }} on {{ booking.date }}?
-    </p>
+    <div class="container">
+        <h2>Confirm Cancellation</h2>
+        <p>
+            Are you sure you want to cancel your booking with {{ booking.barber.name }} on {{ booking.date }}?
+        </p>
 
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, Cancel</button>
-        <a href="{% url 'user_booking_list' %}">No, Go Back</a>
-    </form>
+        <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Cancel</button>
+
+    {% if user.is_staff %}
+        <a href="{% url 'booking_list' %}" class="cancel-link">No, Go Back</a>
+    {% else %}
+        <a href="{% url 'user_booking_list' %}" class="cancel-link">No, Go Back</a>
+    {% endif %}
+</form>
+
+    </div>
 </body>
 </html>

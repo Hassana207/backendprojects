@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Ace Barbershop | User Dashboard</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/customer_dashboard.css' %}">
+
+
+    
 </head>
 <body>
 
@@ -15,24 +20,14 @@
     </header>
 
     <!-- Navigation -->
-    <nav>
+    <nav >
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="{% url 'booked_service' %}">Book a Service</a></li>
-            <li><a href="{% url 'user_booking_list' %}">My Bookings</a></li>
-            <li><a href="{% url 'user_booking_list' %}">Cancel a Booking</a></li>
-            <li><a href="{% url 'user_booking_list' %}">Reschedule</a></li>
-           <li>Rate Barber Service:</li>
-<ul>
-{% for barber in barbers %}
-    <li><a href="{% url 'rate_barber_service' barber.id %}">Rate {{ barber.name }}</a></li>
-{% empty %}
-    <li>No barbers available.</li>
-{% endfor %}
-</ul>
-
+            <li><a href="{% url 'user_booking_list' %}">Manage Bookings</a></li>
+             <li><a href="{% url 'barber_profile' %}">Barbers Profile</a></li>
             
-            
+                 
         </ul>
         <hr>
     </nav>

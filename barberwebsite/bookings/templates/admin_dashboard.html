@@ -1,24 +1,26 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+
 </head>
 <body>
-    <h2>Welcome, {{ request.user.username }}</h2>
-    <h3>Admin Dashboard</h3>
+    <div class="container">
+        <h2>Welcome, {{ request.user.username }}</h2>
+        <h3>Admin Dashboard</h3>
 
-    <ul>
-        <li><a href="{% url 'booking_list' %}">View All ACE Bookings</a></li>
-        <li><a href="{% url 'booked_service' %}">Book a Service for a Customer</a></li>
-        <li><a href="{% url 'user_booking_list' %}">View My Bookings</a></li>
-        <li><a href="{% url 'barber_information' %}">Add new Barber</a></li>
-        <li><a href="{% url 'barber_profile' %}">Manage Barbers</a></li>
-       
-
-
-    </ul>
+        <ul>
+            <li><a href="{% url 'booking_list' %}">View All ACE Bookings</a></li>
+            <li><a href="{% url 'booked_service' %}">Book a Service for a Customer</a></li>
+            <li><a href="{% url 'user_booking_list' %}">View My Bookings</a></li>
+            <li><a href="{% url 'barber_information' %}">Add new Barber</a></li>
+            <li><a href="{% url 'barber_profile' %}">Manage Barbers</a></li>
+            <li><a href="{% url 'set_service_information' %}">Set up Service</a></li>
+            <li><a href="{% url 'service_list' %}">Manage Service</a></li>
+        </ul>
+    </div>
 </body>
 </html>

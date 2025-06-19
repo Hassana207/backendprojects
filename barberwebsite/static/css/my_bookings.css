@@ -1,0 +1,101 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 40px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #6b21a8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #6b21a8;
+    color: #ffffff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.reschedule {
+    background-color: #6b21a8;
+}
+
+.reschedule:hover {
+    background-color: #4c1d95;
+}
+
+.cancel {
+    background-color: #e11d48;
+}
+
+.cancel:hover {
+    background-color: #b91c1c;
+}
+
+.no-bookings {
+    text-align: center;
+    font-size: 18px;
+    color: #888888;
+    margin-top: 40px;
+}
+
+.dashboard-btn {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #e5d4f7;
+    color: #6b21a8;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dashboard-btn:hover {
+    background-color: #d8b4fe;
+    color: #4c1d95;
+}
